@@ -1,0 +1,18 @@
+server:
+  port: 7979
+info:
+    version: @project.version@
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://114.115.172.242:8761//eureka/
+#####设置日志######
+logging:
+   file: ..//logs//hystrix.log
+   level:
+     root: info

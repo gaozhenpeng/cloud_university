@@ -1,0 +1,42 @@
+server:
+    port: 702
+    tomcat:
+        uri-encoding: UTF-8
+    session:
+        timeout: 600 # 15 Session timeout in seconds.
+####设置mysql数据库源以及用户名密码，这里采用阿里的druid连接池####
+spring:
+    datasource:
+         type: com.alibaba.druid.pool.DruidDataSource
+         url: jdbc:mysql://114.115.172.242:3306/cloud_class?characterEncoding=utf8
+         username: root
+         password: 123456
+         driverClassName: com.mysql.jdbc.Driver
+         initialSize: 5
+         minIdle: 5
+         maxActive: 20
+         maxWait: 60000
+         timeBetweenEvictionRunsMillis: 60000
+         minEvictableIdleTimeMillis: 300000
+         validationQuery: SELECT 1 FROM DUAL
+         testWhileIdle: true
+         testOnBorrow: false
+         testOnReturn: false
+         poolPreparedStatements: true
+         maxPoolPreparedStatementPerConnectionSize: 20
+         filters: stat,wall,log4j
+####JPA设置配置model自动创建和更新，即如果数据没有对应的表创建，结构不同则更新####
+    jpa:
+         hibernate:
+           ddl-auto: update
+    session:
+         store-type: jdbc
+#####设置日志######
+logging:
+   file: ..//logs//course.log
+   level:
+     root: info
+####druid监控页面用户名，密码###
+druid:
+   loginUsername: admin
+   loginPassword: admin123456

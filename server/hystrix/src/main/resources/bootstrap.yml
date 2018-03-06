@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: hystrix
+#  cloud:
+#    config:
+#      uri: http://114.115.172.242:8888

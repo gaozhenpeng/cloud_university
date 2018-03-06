@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html
+        xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>微服务监控</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" th:href="@{/img/favicon.gif}" type="image/gif" />
+    <link rel="stylesheet" th:href="@{http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css}" />
+    <script th:src="@{http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js}"></script>
+    <script th:src="@{http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+     <script th:src="@{https://unpkg.com/vue@2.3.4/dist/vue.js}"></script>
+    <script th:src="@{https://unpkg.com/vue-router/dist/vue-router.js}"></script>
+    <script th:src="@{https://unpkg.com/vue-resource@1.3.4}"></script>
+</head>
+<body>
+<h1 align="center">微服务监控</h1>
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="navbar-header">
+                    <span class="icon-bar"></span>
+                    <a rel="nofollow" class="navbar-brand" href="#">Monitor</a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li >
+                            <a rel="nofollow" href="/monitor" target="_blank" >微服务监控</a>
+                        </li>
+                        <li >
+                            <a rel="nofollow" href="http://114.115.172.242:9411/" target="_blank">服务跟踪</a>
+                        </li>
+                        <li >
+                            <a rel="nofollow" href="#" target="_blank">设备监控</a>
+                        </li>
+                        <li >
+                            <a rel="nofollow" th:href="@{/login?logout}" target="_blank">退出</a>
+                        </li>
+                    </ul>
+
+                </div>
+            </nav>
+            <div class="jumbotron">
+                <h3 style="color: red;">
+                    系统介绍：
+                </h3>
+                <p>
+                  monitor 提供针对微服务的监控，跟踪，设备的监控等。
+                </p>
+                <p>
+                    <a rel="nofollow" class="btn btn-primary btn-large" href="#">查看更多 »</a>
+                </p>
+            </div>
+    </div>
+    </div>
+</div>
+</body>
+　
+</html>

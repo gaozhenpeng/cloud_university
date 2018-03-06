@@ -1,0 +1,20 @@
+spring:
+  profiles:
+      active: test
+  jackson:
+      date-format: yyyy-MM-dd HH:mm:ss
+      time-zone: GMT+8
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://114.115.172.242:8761//eureka/
+  instance:
+    preferIpAddress: true
+huawei:  #华为云服务调用，此处配置的是短信服务
+  api:
+    ak:
+    sk:
+    tokenUrl:
+    msgUrl:
+    region:
+    serviceName:

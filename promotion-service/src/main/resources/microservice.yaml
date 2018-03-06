@@ -1,0 +1,14 @@
+APPLICATION_ID: promotion-service
+service_description:
+   name: promotion-service
+   version: 0.1
+cse:
+  service:
+    registry:
+      address: http://114.115.172.242:30100/ #服务注册中心地址
+  rest:
+    address: 0.0.0.0:612 #服务发布的端口
+  handler:
+    chain:
+      provider:
+        default: bizkeeper-provider #调用的处理链

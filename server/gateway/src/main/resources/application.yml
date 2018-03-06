@@ -1,0 +1,67 @@
+server:
+  port: 9000
+  tomcat:
+    uri-encoding: UTF-8
+  session:
+     timeout: 600 # 15 Session timeout in seconds
+eureka:
+  client:
+    healthcheck:
+      enabled: true # 开启健康检查（需要spring-boot-starter-actuator依赖）
+    serviceUrl:
+      defaultZone: http://114.115.172.242:8761//eureka/
+  instance:
+    preferIpAddress: true
+    lease-expiration-duration-in-seconds: 30 # 续约更新时间间隔（默认30秒）
+    lease-renewal-interval-in-seconds: 10 # 续约到期时间（默认90秒）
+# 可以将指定的服务进行反向代理
+#zuul:
+#  routes:
+#     buiness:
+#      ###反向代理配置
+#        url: http://127.0.0.1:8083
+obs-service:
+  ribbon:
+    eureka:
+      enabled: true
+      # 不使用eureka 进行负载均衡时，可以指定server地址，此时eureka.enable 需要设置为false
+      #    listOfServers: localhost:8083,localhost:9092,localhost:9091
+    ServerListRefreshInterval: 15000
+system-service:
+  ribbon:
+    eureka:
+      enabled: true
+    ServerListRefreshInterval: 15000
+teacher-service:
+  ribbon:
+    eureka:
+      enabled: true
+    ServerListRefreshInterval: 15000
+user-service:
+  ribbon:
+    eureka:
+      enabled: true
+    ServerListRefreshInterval: 15000
+course-service:
+  ribbon:
+    eureka:
+      enabled: true
+    ServerListRefreshInterval: 15000
+spring:
+     zipkin:
+       base-url: http://114.115.172.242:9411/
+       enabled: true
+     sleuth:
+       sampler:
+         percentage: 1
+     session:
+       store-type: jdbc
+     datasource:
+       url: jdbc:mysql://114.115.172.242:3306/gateway?characterEncoding=utf8
+       username: root
+       password: 123456
+#####设置日志######
+logging:
+   file: ..//logs//gateway.log
+   level:
+     root: info

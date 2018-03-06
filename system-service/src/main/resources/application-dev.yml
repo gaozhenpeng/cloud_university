@@ -1,0 +1,16 @@
+server:
+  port: 604
+  tomcat:
+    uri-encoding: UTF-8
+  session:
+     timeout: 15 # 15 Session timeout in seconds
+
+#####设置日志######
+logging:
+   file: ..//logs//system.log
+   level:
+     root: info
+spring:
+   h2:
+     console:
+       enabled: true

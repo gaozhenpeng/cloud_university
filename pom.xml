@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.chinasoft</groupId>
+    <artifactId>cloud-univercity</artifactId>
+    <packaging>pom</packaging>
+    <version>0.1-SNAPSHOT</version>
+
+    <parent>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-parent</artifactId>
+        <version>Camden.SR5</version>
+        <relativePath/>
+    </parent>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
+        <spring-cloud.version>Camden.SR5</spring-cloud.version>
+    </properties>
+
+    <modules>
+        <module>obs-service</module>
+        <module>system-service</module>
+        <module>course-service</module>
+        <module>server/discovery</module>
+        <module>server/config</module>
+        <module>server/hystrix</module>
+        <module>server/gateway</module>
+        <module>server/gateway</module>
+        <module>server/zipkin</module>
+
+        <module>server/monitor</module>
+        <module>server</module>
+        <module>teacher-service</module>
+        <module>user-service</module>
+        <module>promotion-service</module>
+    </modules>
+
+    <dependencies>
+
+        <!--SpringBoot基础依赖-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+        <!--SpringBoot应用性能监控依赖，如关键指标，dump文件生成，应用的重启等功能-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <!--SpringBooot应用测试依赖包括model，controller等的测试-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!--&lt;!&ndash;支持应用的热部署，开发阶段打开，生产环境需取消此依赖&ndash;&gt;-->
+        <!--<dependency>-->
+        <!--<groupId>org.springframework.boot</groupId>-->
+        <!--<artifactId>spring-boot-devtools</artifactId>-->
+        <!--</dependency>-->
+    </dependencies>
+    <!--添加SpringCloud依赖，同时指定使用SpringCloud的版本-->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <profiles>
+        <profile>
+            <id>release</id>
+            <properties>
+                <project.release.version>1.0</project.release.version>
+            </properties>
+        </profile>
+    </profiles>
+
+
+    <!--定义snapshots库和releases库的nexus地址-->
+    <distributionManagement>
+        <repository>
+            <id>releases</id>
+            <url>
+                https://devrepo-cn-northeast-1.devcloud.hwclouds.com/01/nexus/content/repositories/e4b5e19ba4cf4049ac96bd268c48bf5e_1_0/
+            </url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <url>
+                https://devrepo-cn-northeast-1.devcloud.hwclouds.com/01/nexus/content/repositories/e4b5e19ba4cf4049ac96bd268c48bf5e_2_0/
+            </url>
+        </snapshotRepository>
+    </distributionManagement>
+</project>

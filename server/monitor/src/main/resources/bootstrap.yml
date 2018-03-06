@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: monitor
+#  cloud:
+#    config:
+#      uri: http://114.115.172.242:8888
+  boot:
+    admin:
+      context-path: /monitor    # 配置访问路径为

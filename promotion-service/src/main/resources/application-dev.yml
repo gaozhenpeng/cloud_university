@@ -1,0 +1,26 @@
+server:
+  port: 612
+  tomcat:
+    uri-encoding: UTF-8
+  session:
+     timeout: 15 # 15 Session timeout in seconds
+#spring:
+#  datasource:
+#    url: jdbc:mysql://114.115.172.242:3306/cloud_class?characterEncoding=utf8
+#    username: root
+#    password: 123456
+#  jpa:
+#    database: MYSQL
+#    show-sql: true
+#####JPA设置配置model自动创建和更新，即如果数据没有对应的表创建，结构不同则更新####
+#    hibernate:
+#        ddl-auto: update
+#####设置日志######
+logging:
+   file: ..//logs//promotion.log
+   level:
+     root: info
+#spring:
+#   h2:
+#     console:
+#       enabled: true

@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: gateway
+#management.security.enabled=false
+#  cloud:
+#    config:
+#      uri: http://10.253.100.148:8888

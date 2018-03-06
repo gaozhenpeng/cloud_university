@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: user-service
+#  cloud:
+#    common:
+#      uri: http://10.253.100.148:8888

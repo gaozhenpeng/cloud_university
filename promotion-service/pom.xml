@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>cloud-univercity</artifactId>
+        <groupId>com.chinasoft</groupId>
+        <version>0.1-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>promotion-service</artifactId>
+
+<dependencies>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-data-jpa</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>com.h2database</groupId>
+        <artifactId>h2</artifactId>
+    </dependency>
+    <!--添加阿里 Druid连接池依赖-->
+    <dependency>
+        <groupId>com.alibaba</groupId>
+        <artifactId>druid</artifactId>
+        <version>1.0.25</version>
+    </dependency>
+    <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+    </dependency>
+<!--上面为原有应用逻辑部分 -->
+
+<!--使用华为service-comb进行微服务开发与治理-->
+    <dependency>
+        <!--让服务运行于微服务sdk容器中-->
+        <groupId>io.servicecomb</groupId>
+        <artifactId>spring-boot-starter-provider</artifactId>
+    </dependency>
+    <dependency>
+        <!--使用服务中心-->
+        <groupId>io.servicecomb</groupId>
+        <artifactId>spring-boot-starter-discovery</artifactId>
+    </dependency>
+    <dependency>
+        <!--让服务运行于Spring boot embedded tomcat中-->
+        <groupId>io.servicecomb</groupId>
+        <artifactId>spring-boot-starter-transport</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+    </dependency><dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-actuator</artifactId>
+</dependency>
+
+</dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>io.servicecomb</groupId>
+                <artifactId>java-chassis-dependencies</artifactId>
+                <version>0.1.0</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>

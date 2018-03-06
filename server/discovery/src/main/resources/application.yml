@@ -1,0 +1,10 @@
+server:
+  port: 8761
+eureka:
+  enable-self-preservation: false  # 自我保护 如果不关闭，关掉的节点无法及时更新
+  eviction-interval-timer-in-ms: 4000 # 清理列表间隔时间 清理间隔（单位毫秒，默认是60*1000）
+#####设置日志######
+logging:
+   file: ..//logs//discovery.log
+   level:
+     root: info
