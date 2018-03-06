@@ -1,0 +1,60 @@
+version: '2'
+services:
+  mysql:
+    image: mysql:5.7.17
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./db:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=cloud_class
+      - MYSQL_ROOT_PASSWORD=123456 
+  discovery:
+    image: discovery
+    ports:
+      - "8761:8761"
+  hystrix:
+    image: hystrix
+    ports:
+      - "7979:7979"
+    links:
+      - discovery
+  zipkin:
+    image: zipkin
+    ports:
+      - "9411:9411" 
+    links:
+      - discovery
+  config:
+    image: config
+    ports:
+      - "8888:8888"
+    links:
+      - discovery
+  user:
+    image: user
+    ports:
+      - "706:706"
+    links:
+      - discovery
+      - mysql
+  obs:
+    image: obs
+    ports:
+      - "703:703"
+    links:
+      - discovery
+      - mysql
+  gateway:
+    image: gateway
+    ports:
+      - "9000:9000"
+    links:
+      - discovery
+      - mysql
+  monitor:
+    image: monitor
+    ports:
+      - "30000:30000"
+    links:
+      - discovery
